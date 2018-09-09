@@ -1,0 +1,9 @@
+bson
+Flask==0.12
+Flask-API==0.6.9
+Flask-JWT==0.3.2
+Flask-PyMongo==0.4.1
+gunicorn
+libsass
+pymongo
+Eve==0.8

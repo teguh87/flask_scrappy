@@ -1,0 +1,52 @@
+version: "2.2"
+services:
+  api:
+    restart: always
+    build: ./app
+    working_dir: /app
+    volumes:
+      - ./app:/app
+    expose: 
+      - "5000"
+    command: /usr/local/bin/gunicorn -w 4 -b :5000 app:app
+    depends_on:
+      - mongo
+  mongo:
+    container_name: cnt-mongo
+    image: mongo:3.2.4
+    ports:
+      - 27017:27017
+    command: mongod --smallfiles --logpath=/dev/null # --quiet
+    environment:
+      - MONGO_DATA_DIR=/data/db
+      - MONGO_LOG_DIR=/dev/null
+      - ./data/db:/data/db
+  
+  mongo-init:
+    build: ./mongo-init
+    links:
+      - mongo
+  
+  # mongo-client:
+  #   container_name: cnt-mongo-client
+  #   image: mongoclient/mongoclient
+  #   ports:
+  #     - 3030:3000
+  #   environment:
+  #     - MONGOCLIENT_DEFAULT_CONNECTION_URL=mongodb://mongo:27017
+  #     - MONGO_URL=mongodb://mongo:27017
+  #   links:
+  #     - mongo
+
+  nginx:
+    container_name: cnt-nginx
+    image: nginx:1.13
+    restart: always
+    ports:
+      - 80:80
+      - 433:433
+    volumes:
+      - ./nginx/conf.d:/etc/nginx/conf.d
+    links:
+      - api
+    
