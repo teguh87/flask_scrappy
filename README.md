@@ -34,19 +34,26 @@ OpenSSL version: OpenSSL 1.0.2j  26 Sep 2016
 </pre>
 
 #Simple Architecture 
-
+<pre>
 +------------------------------- docker container ----------------------------+
 +-------------+       +------------+         +--------------+     +-----------+
 |             |       |            |         |              |     |           |
 |    nginx    +-------+  gunicorn  +---------+  flask app   +-----+   mongo   |
 |             |       |            |         |              |     |           |
 +-------------+       +------------+         +--------------+     +-----------+
-
-# Quick start
-
-Pull build and up
-<pre>
-$ git clone  
++-----------------------------------------------------------------------------+
 
 </pre>
+
+# Quick start
+Pull build and up
+<pre>
+$ git clone  https://github.com/teguh87/flask_scrappy.git
+$ cd flask_scrappy
+$ docker-compose build
+$ docker-compose up -d
+</pre>
+
+
+
 
