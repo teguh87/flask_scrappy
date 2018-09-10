@@ -274,3 +274,27 @@ Try to fetch by grether then  soo, you can query by using this query string :
             }
         },
 </pre>
+
+# Answering the questions
+<b>Which database engine you choose and why?</b>. Mongodb is database that I used for this project
+
+Basically:
+
+this project only represent data model in a form of a bunch of documents not a object model so we don't need SQL type database, abd MongoDB could be a good choice.
+
+If you would rather imagine your data as a bunch of interconnected tables, MongoDB may not be a good choice.
+
+<b>Which web framework you choose and why?</b> I'm using python-eve base on flask general-propose for connect with mongodb
+
+Eve is an open source Python REST API framework designed for human beings. It allows to effortlessly build and deploy highly customizable, fully featured RESTful Web Services. Eve offers native support for MongoDB, and SQL backends via community extensions.
+
+<b>Briefly describe the architecture of your application?</b>
+
+For this seed project, I am using 3 Docker containers:
+
+NGINX - Web Server
+FLASK - Flask web application with uwsgi server.
+Mongo - Database.
+The three components are all created from Docker images that expand on the respective official images from Docker Hub. Each of these images are built using separate Dockerfiles. Docker Compose is then used to create all three containers and connect them correctly into a unified application.
+
+
