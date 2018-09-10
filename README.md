@@ -63,7 +63,7 @@ $ docker-compose stop
 
 
 # Endpoint definition
-The next thing is a definition of the client endpoint. It is done in 
+The next thing is a definition of the client endpoint you need restful client such as postmen etc. base url is <pre>http://localhost</pre> It is done in 
 <b> Fetch companies </b> <pre> /companies </pre> result must be :
 
 <pre>
