@@ -64,7 +64,7 @@ $ docker-compose stop
 
 # Endpoint definition
 The next thing is a definition of the client endpoint. It is done in 
-<b> Fetch companies </b> <pre> curl -i -H "Accept: application/json" "http://localhost/companies"</pre> result must be :
+<b> Fetch companies </b> <pre> /companies </pre> result must be :
 
 <pre>
 "_items": [
@@ -116,7 +116,7 @@ The next thing is a definition of the client endpoint. It is done in
         .......
  </pre>
 
-Try to fetch by company_name soo, you can query by using this query string : <pre>curl -i -H "Accept: application/json" "http://localhost/companies/?where={'company_name': 'BEN TRE AQUAPRODUCT IMPORT AND EXPORT JSC'}"</pre> so the result should be:
+Try to fetch by company_name soo, you can query by using this query string : <pre>/companies/?where={"company_name": "BEN TRE AQUAPRODUCT IMPORT AND EXPORT JSC"}</pre> so the result should be:
 
 <pre>
     "_items": [
@@ -171,7 +171,7 @@ Try to fetch by company_name soo, you can query by using this query string : <pr
 
 
 Try to fetch by industry soo, you can query by using this query string :
-<pre>curl -i -H "Accept: application/json" "http://localhost/companies/?where={'industry': 'Food processing'}"</pre> so the result should be:
+<pre>/companies/?where={"industry": "Food processing"}</pre> so the result should be:
 
 <pre>
      "_items": [
@@ -224,7 +224,7 @@ Try to fetch by industry soo, you can query by using this query string :
 </pre>
 
 Try to fetch by grether then  soo, you can query by using this query string :
-<pre>curl -i -H "Accept: application/json" "http://localhost/companies/?where={'revenue': {'$gt': '83,000,000,000'}}"</pre> so the result should be:
+<pre>/companies/?where={"revenue': {'$gt": "83,000,000,000"}}</pre> so the result should be:
 
 <pre>
      "_items": [
