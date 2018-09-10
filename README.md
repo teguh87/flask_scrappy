@@ -8,7 +8,7 @@ Docker image with uWSGI and Nginx for Flask web applications in Python 3.6, Pyth
 please install docker for full running in local machine
 
 <pre>
-  $ docker version
+$ docker version
     Client:
      Version:	17.12.0-ce
      API version:	1.35
@@ -34,11 +34,12 @@ OpenSSL version: OpenSSL 1.0.2j  26 Sep 2016
 </pre>
 
 #Simple Architecture 
+
 <pre>
 +------------------------------- docker container ----------------------------+
 +-------------+       +------------+         +--------------+     +-----------+
 |             |       |            |         |              |     |           |
-|    nginx    +-------+  gunicorn  +---------+  flask app   +-----+   mongo   |
+|    nginx    +-------+  gunicorn  +---------+      eve     +-----+   mongo   |
 |             |       |            |         |              |     |           |
 +-------------+       +------------+         +--------------+     +-----------+
 +-----------------------------------------------------------------------------+
@@ -53,6 +54,18 @@ $ cd flask_scrappy
 $ docker-compose build
 $ docker-compose up -d
 </pre>
+
+#stop the service
+
+<pre>
+$ docker-compose stop
+</pre>
+
+
+# Endpoint definition
+The next thing is a definition of the client endpoint. It is done in 
+<b> 1. Fetch companies </b> <pre> curl -i -H "Accept: application/json" "http://localhost/companies"</pre> result must be :
+
 
 
 
