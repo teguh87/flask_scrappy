@@ -280,7 +280,7 @@ Try to fetch by grether then  soo, you can query by using this query string :
 
 Basically:
 
-this project only represent data model in a form of a bunch of documents not a object model so we don't need SQL type database, abd MongoDB could be a good choice.
+this project only represent data model in a form of a bunch of documents not a object model so we don't need SQL type database, and MongoDB could be a good choice.
 
 If you would rather imagine your data as a bunch of interconnected tables, MongoDB may not be a good choice.
 
