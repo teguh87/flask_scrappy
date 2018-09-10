@@ -64,9 +64,213 @@ $ docker-compose stop
 
 # Endpoint definition
 The next thing is a definition of the client endpoint. It is done in 
-<b> 1. Fetch companies </b> <pre> curl -i -H "Accept: application/json" "http://localhost/companies"</pre> result must be :
+<b> Fetch companies </b> <pre> curl -i -H "Accept: application/json" "http://localhost/companies"</pre> result must be :
+
+<pre>
+"_items": [
+        {
+            "_id": "5b95b7d6bbbfe362d0bea709",
+            "company_website": "www.aquatexbentre.com",
+            "company_description": "Processing and exporting aquatic products; breeding aquatic products; importing materials and commodities; trading; operating restaurants; providing services; and other business scopes decided by the Board of Directors and in line with the laws",
+            "revenue": "81,000,000,000",
+            "company_url": "http://stock.vietnammarkets.com/food-processing/ABT/",
+            "industry": "Food processing",
+            "business_registration": {
+                "established_licence": "Established License: 3423/QD-UB  12-01-2003  Ben Tre Province People's Committee",
+                "business_licance": "Business License: 553000010  12-25-2003   Department of Planning and Investment of Ben Tre Province"
+            },
+            "company_phone_number": "+84 8475860265/+84 8475860346",
+            "financial_summary": {
+                "listing_volume": "3,300,000",
+                "par_value": "10,000",
+                "equity": "0",
+                "capital_currency": "VND",
+                "market_capital": "81,000,000,000",
+                "initial_list_price": "90,000"
+            },
+            "auditing_company": {
+                "company_website": "http://www.aisc.com.vn ",
+                "company_contact": "Tel: (84.8) 9 305 163 (10 lines) - Fax: (84.8) 9 304 28",
+                "company_email": " aisc@aisc.com.vn",
+                "company_address": "Address: 142 Nguyen Thi Minh Khai Street - District 3",
+                "company_name": "Auditing and Informatic Services Company"
+            },
+            "company_name": "BEN TRE AQUAPRODUCT IMPORT AND EXPORT JSC",
+            "company_address": {
+                "province": " Ben Tre Province",
+                "street1": "Village 9",
+                "street2": " Tan Thach Commune",
+                "city": " Chau Thanh District"
+            },
+            "ticker_symbol": "ABT",
+            "company_email": "aquatex@hcm.vnn.vn",
+            "_created": "Thu, 01 Jan 1970 00:00:00 GMT",
+            "_updated": "Thu, 01 Jan 1970 00:00:00 GMT",
+            "_links": {
+                "self": {
+                    "title": "name",
+                    "href": "companies/5b95b7d6bbbfe362d0bea709"
+                }
+            }
+        },
+        .......
+ </pre>
+
+Try to fetch by company_name soo, you can query by using this query string : <pre>curl -i -H "Accept: application/json" "http://localhost/companies/?where={'company_name': 'BEN TRE AQUAPRODUCT IMPORT AND EXPORT JSC'}"</pre> so the result should be:
+
+<pre>
+    "_items": [
+        {
+            "_id": "5b95b7d6bbbfe362d0bea709",
+            "company_website": "www.aquatexbentre.com",
+            "company_description": "Processing and exporting aquatic products; breeding aquatic products; importing materials and commodities; trading; operating restaurants; providing services; and other business scopes decided by the Board of Directors and in line with the laws",
+            "revenue": "81,000,000,000",
+            "company_url": "http://stock.vietnammarkets.com/food-processing/ABT/",
+            "industry": "Food processing",
+            "business_registration": {
+                "established_licence": "Established License: 3423/QD-UB  12-01-2003  Ben Tre Province People's Committee",
+                "business_licance": "Business License: 553000010  12-25-2003   Department of Planning and Investment of Ben Tre Province"
+            },
+            "company_phone_number": "+84 8475860265/+84 8475860346",
+            "financial_summary": {
+                "listing_volume": "3,300,000",
+                "par_value": "10,000",
+                "equity": "0",
+                "capital_currency": "VND",
+                "market_capital": "81,000,000,000",
+                "initial_list_price": "90,000"
+            },
+            "auditing_company": {
+                "company_website": "http://www.aisc.com.vn ",
+                "company_contact": "Tel: (84.8) 9 305 163 (10 lines) - Fax: (84.8) 9 304 28",
+                "company_email": " aisc@aisc.com.vn",
+                "company_address": "Address: 142 Nguyen Thi Minh Khai Street - District 3",
+                "company_name": "Auditing and Informatic Services Company"
+            },
+            "company_name": "BEN TRE AQUAPRODUCT IMPORT AND EXPORT JSC",
+            "company_address": {
+                "province": " Ben Tre Province",
+                "street1": "Village 9",
+                "street2": " Tan Thach Commune",
+                "city": " Chau Thanh District"
+            },
+            "ticker_symbol": "ABT",
+            "company_email": "aquatex@hcm.vnn.vn",
+            "_created": "Thu, 01 Jan 1970 00:00:00 GMT",
+            "_updated": "Thu, 01 Jan 1970 00:00:00 GMT",
+            "_links": {
+                "self": {
+                    "title": "name",
+                    "href": "companies/5b95b7d6bbbfe362d0bea709"
+                }
+            }
+        }
+    ],
+    ...
+</pre>
 
 
+Try to fetch by industry soo, you can query by using this query string :
+<pre>curl -i -H "Accept: application/json" "http://localhost/companies/?where={'industry': 'Food processing'}"</pre> so the result should be:
 
+<pre>
+     "_items": [
+        {
+            "_id": "5b95b7d6bbbfe362d0bea709",
+            "company_website": "www.aquatexbentre.com",
+            "company_description": "Processing and exporting aquatic products; breeding aquatic products; importing materials and commodities; trading; operating restaurants; providing services; and other business scopes decided by the Board of Directors and in line with the laws",
+            "revenue": "81,000,000,000",
+            "company_url": "http://stock.vietnammarkets.com/food-processing/ABT/",
+            "industry": "Food processing",
+            "business_registration": {
+                "established_licence": "Established License: 3423/QD-UB  12-01-2003  Ben Tre Province People's Committee",
+                "business_licance": "Business License: 553000010  12-25-2003   Department of Planning and Investment of Ben Tre Province"
+            },
+            "company_phone_number": "+84 8475860265/+84 8475860346",
+            "financial_summary": {
+                "listing_volume": "3,300,000",
+                "par_value": "10,000",
+                "equity": "0",
+                "capital_currency": "VND",
+                "market_capital": "81,000,000,000",
+                "initial_list_price": "90,000"
+            },
+            "auditing_company": {
+                "company_website": "http://www.aisc.com.vn ",
+                "company_contact": "Tel: (84.8) 9 305 163 (10 lines) - Fax: (84.8) 9 304 28",
+                "company_email": " aisc@aisc.com.vn",
+                "company_address": "Address: 142 Nguyen Thi Minh Khai Street - District 3",
+                "company_name": "Auditing and Informatic Services Company"
+            },
+            "company_name": "BEN TRE AQUAPRODUCT IMPORT AND EXPORT JSC",
+            "company_address": {
+                "province": " Ben Tre Province",
+                "street1": "Village 9",
+                "street2": " Tan Thach Commune",
+                "city": " Chau Thanh District"
+            },
+            "ticker_symbol": "ABT",
+            "company_email": "aquatex@hcm.vnn.vn",
+            "_created": "Thu, 01 Jan 1970 00:00:00 GMT",
+            "_updated": "Thu, 01 Jan 1970 00:00:00 GMT",
+            "_links": {
+                "self": {
+                    "title": "name",
+                    "href": "companies/5b95b7d6bbbfe362d0bea709"
+                }
+            }
+        },
+        ...
+</pre>
 
+Try to fetch by grether then  soo, you can query by using this query string :
+<pre>curl -i -H "Accept: application/json" "http://localhost/companies/?where={'revenue': {'$gt': '83,000,000,000'}}"</pre> so the result should be:
 
+<pre>
+     "_items": [
+        {
+            "_id": "5b95b7d6bbbfe362d0bea713",
+            "company_website": "www.ximangbimson.com.vn",
+            "company_description": "Manufacturing, trading, exporting and importing cement, clinker and other construction materials",
+            "revenue": "900,000,000,000",
+            "company_url": "http://stock.vietnammarkets.com/construction-materials/BCC/",
+            "industry": "Construction materials",
+            "business_registration": {
+                "established_licence": "Established License: 366/BXD-TCLD  08-12-1993  Ministry of Construction",
+                "business_licance": "Business License: 20603000429  05-01-2006   Planning and Investment Department of Thanh Hoa Province"
+            },
+            "company_phone_number": "+84 8437824242/+84 8437824046",
+            "financial_summary": {
+                "listing_volume": "90,000,000",
+                "par_value": "10,000",
+                "equity": "0",
+                "capital_currency": "VND",
+                "market_capital": "900,000,000,000",
+                "initial_list_price": "0"
+            },
+            "auditing_company": {
+                "company_website": "http:",
+                "company_contact": "Tel: (84-4) 826 8681 - Fax: (84-4) 825 3973",
+                "company_email": "",
+                "company_address": "Address: 01 Le Phung Hieu Street - Hanoi",
+                "company_name": "Accounting and Auditing Financial Consultancy Service Company (AASC)"
+            },
+            "company_name": "BIM SON CEMENT JOINT STOCK COMPANY",
+            "company_address": {
+                "province": "",
+                "street1": "Ba Dinh Ward",
+                "street2": " Bim Son Town",
+                "city": " Thanh Hoa Privince"
+            },
+            "ticker_symbol": "BCC",
+            "company_email": "ttximangbimson@hn.vnn.vn",
+            "_created": "Thu, 01 Jan 1970 00:00:00 GMT",
+            "_updated": "Thu, 01 Jan 1970 00:00:00 GMT",
+            "_links": {
+                "self": {
+                    "title": "name",
+                    "href": "companies/5b95b7d6bbbfe362d0bea713"
+                }
+            }
+        },
+</pre>
